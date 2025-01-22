@@ -1,0 +1,231 @@
+// Color Variables
+$primary-green: #97BC62;
+$light-green: #b2da7c;
+$medium-green: #97BC62;
+$dark-green: #7a9b4b;
+$bg-light: #f5f8f2;  // Very light green-tinted white
+$bg-white: #ffffff;
+$text-dark: #2c3e2d;  // Dark green-gray for text
+$text-medium: #4a624c; // Medium green-gray for secondary text
+$text-light: #fbfbfb;  // Almost white for contrast text
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 4rem; // Accounts for fixed navbar
+  }
+
+// Navigation
+.nav {
+    background-color: $dark-green;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 50;
+  
+    &__container {
+      max-width: 80rem;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+  
+    &__content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 4rem;
+    }
+  
+    &__links {
+      display: flex;
+      gap: 4rem;
+    }
+  
+    &__link {
+      color: $bg-light;
+      padding: 0.5rem 1.5rem;
+      font-size: 1.125rem;
+      transition: all 0.3s ease;
+      position: relative;
+  
+      &:hover {
+        color: $light-green;
+      }
+  
+      // Active state indicator
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0;
+        height: 2px;
+        background-color: $light-green;
+        transition: width 0.3s ease;
+      }
+  
+      &:hover::after {
+        width: 80%;
+      }
+    }
+  }
+  
+
+// Hero Section
+.hero {
+  padding-top: 5rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: $bg-light;
+  background-image: linear-gradient(135deg, rgba(151, 188, 98, 0.1) 0%, rgba(178, 218, 124, 0.1) 100%);
+
+  &__container {
+    max-width: 80rem;
+    margin: 0 auto;
+    padding: 0 1rem;
+    text-align: center;
+  }
+
+  &__title {
+    font-size: 3.75rem;
+    font-weight: 700;
+    color: $text-dark;
+    margin-bottom: 1.5rem;
+  }
+
+  &__subtitle {
+    font-size: 1.875rem;
+    color: $primary-green;
+  }
+}
+
+// About Section
+.about {
+    padding: 5rem 0;
+    background-color: $bg-white;
+  
+    &__container {
+      max-width: 80rem;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+  
+    &__content {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      align-items: center;
+  
+      @media (min-width: 768px) {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+  
+    &__image-container {
+      max-width: 320px; // Default size for desktop
+      width: 100%;
+      margin: 0 auto; // Centers the image container
+      position: relative;
+      
+      @media (max-width: 768px) {
+        max-width: 280px; // Slightly smaller on tablets
+      }
+      
+      @media (max-width: 480px) {
+        max-width: 240px; // Even smaller on mobile
+      }
+    }
+  
+    &__image {
+      width: 100%;
+      height: 100%;
+      border-radius: 0.5rem;
+      object-fit: cover;
+      box-shadow: 0 4px 15px rgba(151, 188, 98, 0.2);
+      aspect-ratio: 1 / 1; // Maintains square aspect ratio
+    }
+  
+    &__text {
+      margin-top: 1rem;
+    }
+
+  &__title {
+    font-size: 1.875rem;
+    font-weight: 700;
+    color: $text-dark;
+    margin-bottom: 1rem;
+  }
+
+  &__description {
+    color: $text-medium;
+    line-height: 1.75;
+  }
+}
+
+// Projects Section
+.projects {
+  padding: 5rem 0;
+  background-color: $bg-light;
+
+  &__container {
+    max-width: 80rem;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  &__title {
+    font-size: 1.875rem;
+    font-weight: 700;
+    color: $text-dark;
+    margin-bottom: 3rem;
+    text-align: center;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+
+    @media (min-width: 768px) {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+}
+
+// Project Card
+.project-card {
+  background-color: $bg-white;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 15px rgba(151, 188, 98, 0.15);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(151, 188, 98, 0.2);
+  }
+
+  &__image {
+    width: 100%;
+    height: 12rem;
+    object-fit: cover;
+  }
+
+  &__content {
+    padding: 1.5rem;
+  }
+
+  &__title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: $text-dark;
+  }
+
+  &__description {
+    color: $text-medium;
+  }
+}
